@@ -141,6 +141,47 @@
   </ul>
 </section>
 
+  <section id="analyses">
+  <h2>Epigenomics Analysis Pipelines</h2>
+  <p style="line-height: 1.5;">
+    My epigenomics workflows are designed to analyze both bulk and single-cell DNA methylation data at scale, with a particular emphasis on CpG and CpH methylation in reproductive systems. I work across various platforms, including WGBS and scWGBS, integrating chromatin state annotations, transcription factor motifs, and gene regulation insights. All pipelines are optimized for high-performance computing clusters using Snakemake and custom R/Python tools.
+  </p>
+
+  <h3>🧬 Whole-Genome Bisulfite Sequencing (WGBS)</h3>
+  <ul>
+    <li>Read trimming and alignment using <code>Bismark</code> and <code>Bowtie2</code></li>
+    <li>Methylation extraction and filtering across CpG and CpH contexts</li>
+    <li>Differential methylation analysis with <code>DMRichR</code> and <code>Comethyl</code></li>
+    <li>Integration with gene annotations and gene ontology enrichment</li>
+    <li>Visualization of methylation patterns at gene/regional level using custom R scripts</li>
+  </ul>
+
+ <h3>🔬 Single-Cell WGBS (scWGBS)</h3>
+<ul>
+  <li>Demultiplexing and allC generation using <code>snmC-seq2</code></li>
+  <li>Preprocessing and methylation matrix construction using <code>allcools</code> and <code>MCDS</code></li>
+  <li>Dimensionality reduction and clustering with <code>AnnData</code> and UMAP</li>
+  <li>Differential methylation across clusters with <code>Comethyl</code> and gene enrichment using <code>DMRichR</code></li>
+  <li>
+    Module detection via <code>hdWGCNA</code> to identify co-methylated gene networks associated with biological features (e.g., stress, maturation)
+  </li>
+  <li>
+    Transcription factor (TF) network analysis using motif enrichment (e.g., <code>HOMER</code>, <code>MEME</code>) and TF-gene co-regulation inference
+  </li>
+  <li>Integration with chromatin state annotations to contextualize regulatory modules</li>
+</ul>
+
+  <h3>🧪 Preconception Stress & Oocyte Epigenomics</h3>
+  <ul>
+    <li>Focused analysis of maternal stress effects on CpG/CpH methylation in oocytes</li>
+    <li>Identification of stable methylation signatures linked to oocyte quality</li>
+    <li>Developmental reprogramming dynamics modeled from oocyte to early embryo</li>
+  </ul>
+
+  <p>
+    Visit my <a href="https://github.com/Ensiuc" target="_blank">GitHub</a> for code samples and pipeline documentation.
+  </p>
+</section>
 
   <section id="contact">
     <h2>Contact</h2>

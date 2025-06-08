@@ -141,74 +141,99 @@
   </ul>
 </section>
 
-  <section id="analyses">
-  <h2>Epigenomics Analysis Pipelines</h2>
+<section id="analyses">
+  <h2>Analysis Pipelines</h2>
   <p style="line-height: 1.5;">
-    My epigenomics workflows are designed to analyze both bulk and single-cell DNA methylation data at scale, with a particular emphasis on CpG and CpH methylation in reproductive systems. I work across various platforms, including WGBS and scWGBS, integrating chromatin state annotations, transcription factor motifs, and gene regulation insights. All pipelines are optimized for high-performance computing clusters using Snakemake and custom R/Python tools.
+    I develop analysis pipelines in epigenomics and genomics, applying them to single-cell methylome data, environmental WGBS, and conservation-focused genome sequencing. Below are descriptions and selected visual examples from recent work.
+  </p>
+
+  <!-- 🔬 Epigenomics Section -->
+  <h2>Epigenomics Analysis</h2>
+  <p style="line-height: 1.5;">
+    My epigenomics work focuses on both bulk and single-cell DNA methylation analysis. I specialize in CpG and CpH profiling using WGBS and scWGBS data, particularly in oocytes and early embryos. These pipelines are designed for high-resolution, multi-layered integration with chromatin state and transcription factor networks.
   </p>
 
   <h3>🧬 Whole-Genome Bisulfite Sequencing (WGBS)</h3>
   <ul>
-    <li>Read trimming and alignment using <code>Bismark</code> and <code>Bowtie2</code></li>
-    <li>Methylation extraction and filtering across CpG and CpH contexts</li>
-    <li>Differential methylation analysis with <code>DMRichR</code> and <code>Comethyl</code></li>
-    <li>Integration with gene annotations and gene ontology enrichment</li>
-    <li>Visualization of methylation patterns at gene/regional level using custom R scripts</li>
+    <li>Trimming and alignment using <code>Bismark</code> + <code>Bowtie2</code></li>
+    <li>Methylation extraction across CpG and CpH contexts</li>
+    <li>Differential methylation with <code>DMRichR</code> and <code>Comethyl</code></li>
+    <li>GO enrichment and gene-based interpretation</li>
   </ul>
+  <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; margin-bottom: 2rem;">
+    <img src="GO_mCG_bothttest_top10_qval.png" alt="GO analysis" style="height: 180px;">
+    <img src="delta_methylation_barplot_stressedOOcyteandEmbryo.png" alt="Delta methylation barplot" style="height: 180px;">
+  </div>
 
- <h3>🔬 Single-Cell WGBS (scWGBS)</h3>
-<ul>
-  <li>Demultiplexing and allC generation using <code>snmC-seq2</code></li>
-  <li>Preprocessing and methylation matrix construction using <code>allcools</code> and <code>MCDS</code></li>
-  <li>Dimensionality reduction and clustering with <code>AnnData</code> and UMAP</li>
-  <li>Differential methylation across clusters with <code>Comethyl</code> and gene enrichment using <code>DMRichR</code></li>
-  <li>
-    Module detection via <code>hdWGCNA</code> to identify co-methylated gene networks associated with biological features (e.g., stress, maturation)
-  </li>
-  <li>
-    Transcription factor (TF) network analysis using motif enrichment (e.g., <code>HOMER</code>, <code>MEME</code>) and TF-gene co-regulation inference
-  </li>
-  <li>Integration with chromatin state annotations to contextualize regulatory modules</li>
-</ul>
+  <h3>🔬 Single-Cell WGBS (scWGBS)</h3>
+  <p style="line-height: 1.5;">
+    For single-cell epigenomics, I analyze CpG and CpH methylation profiles from thousands of oocytes and embryos using scalable pipelines that include clustering, enrichment, and regulatory module analysis.
+  </p>
+  <ul>
+    <li>Demultiplexing and processing via <code>snmC-seq2</code> & <code>allcools</code></li>
+    <li>Dimensionality reduction, clustering, and differential methylation (MCDS, Comethyl)</li>
+    <li>Module detection with <code>hdWGCNA</code>, TF motif enrichment (HOMER, MEME)</li>
+    <li>Chromatin state integration (ChromHMM)</li>
+  </ul>
+  <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; margin-bottom: 2rem;">
+    <img src="Module_Correlation_Heatmap.pdf" alt="Module correlation heatmap" style="height: 180px;">
+    <img src="Top_ME_Trait_Correlation_Heatmap.pdf" alt="ME-trait correlation heatmap" style="height: 180px;">
+    <img src="TF_Network_FOXA1_homer.png" alt="TF network FOXA1" style="height: 180px;">
+    <img src="ChromHMM_heatmap_mCG.pdf" alt="ChromHMM CpG heatmap" style="height: 180px;">
+    <img src="PCAonDNAMethylationandPCcorrelation.pdf" alt="PCA on methylation" style="height: 180px;">
+  </div>
 
   <h3>🧪 Preconception Stress & Oocyte Epigenomics</h3>
+  <p style="line-height: 1.5;">
+    This analysis focuses on how maternal stress impacts methylation prior to fertilization, and how these changes persist or reset during early embryogenesis.
+  </p>
   <ul>
-    <li>Focused analysis of maternal stress effects on CpG/CpH methylation in oocytes</li>
-    <li>Identification of stable methylation signatures linked to oocyte quality</li>
-    <li>Developmental reprogramming dynamics modeled from oocyte to early embryo</li>
+    <li>Cluster-based comparisons of CpG/CpH methylation</li>
+    <li>Marker identification for oocyte quality and developmental potential</li>
+    <li>Integration of methylation, chromatin, and transcription factor networks</li>
   </ul>
 
-    <h2 style="margin-top:3rem;">Genomics Analysis Pipelines</h2>
-<p style="line-height: 1.5;">
-  My genomics work spans population genetics, conservation genomics, and environmental DNA studies. I specialize in analyzing whole genome sequencing (WGS), RAD-seq, and transcriptomic data to uncover genetic structure, adaptation, and evolutionary history in both model and non-model organisms. My pipelines are built around open-source tools and cluster-based workflows for reproducibility and scalability.
-</p>
+  <!-- 🧬 Genomics Section -->
+  <h2 style="margin-top:3rem;">Genomics Analysis</h2>
+  <p style="line-height: 1.5;">
+    My genomics workflows span conservation genetics, population structure, and transcriptomic integration. These analyses help uncover evolutionary dynamics, genetic health, and functional diversity in non-model and endangered species.
+  </p>
 
-<h3>🧬 Population Genomics & Conservation Genetics</h3>
-<ul>
-  <li>Reference genome alignment and variant calling using <code>BWA</code>, <code>Samtools</code>, <code>ANGSD</code>, and <code>GATK</code></li>
-  <li>SNP filtering and annotation with <code>snpR</code>, <code>PLINK</code>, and <code>ANGSD</code></li>
-  <li>Population structure inference via <code>F<sub>ST</sub></code>, PCA, ADMIXTURE, and fastStructure</li>
-  <li>Detection of loci under selection using outlier scans and environmental association analysis</li>
-</ul>
+  <h3>🧬 Population Genomics & Conservation Genetics</h3>
+  <ul>
+    <li>WGS/RAD-seq processing with <code>BWA</code>, <code>ANGSD</code>, <code>GATK</code></li>
+    <li>SNP calling, filtering, and annotation using <code>snpR</code>, <code>PLINK</code></li>
+    <li>Structure analysis (PCA, ADMIXTURE, F<sub>ST</sub>, fastStructure)</li>
+  </ul>
+  <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; margin-bottom: 2rem;">
+    <img src="pcaandadmixture.png" alt="Genomic PCA and admixture" style="height: 180px;">
+    <img src="discoveringSNPs.png" alt="SNP discovery" style="height: 180px;">
+  </div>
 
-<h3>🐟 Conservation & Domestication Studies</h3>
-<ul>
-  <li>Genomic monitoring of endangered fish species including Delta Smelt and Redband Trout</li>
-  <li>Domestication-related selection detection using F<sub>ST</sub> outliers, methylation-QTLs, and hybrid identification</li>
-  <li>Assay development: SNP panels for genetic identification and monitoring</li>
-</ul>
+  <h3>🐟 Conservation & Domestication Studies</h3>
+  <p style="line-height: 1.5;">
+    Genomic tools support my work in identifying selection and lineage boundaries in species like Delta Smelt and Redband Trout, with applications in species recovery and management.
+  </p>
+  <ul>
+    <li>Domestication signal detection (F<sub>ST</sub>, methylation-QTL)</li>
+    <li>SNP panel design for genetic identification</li>
+  </ul>
+  <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; margin-bottom: 2rem;">
+    <img src="HeatmapDNAMethylationovergeneration.png" alt="Heatmap across generations" style="height: 180px;">
+  </div>
 
-<h3>🧬 Genomic Connectivity & eQTL Analysis</h3>
-<ul>
-  <li>Transcriptomic data integration for expression-QTL (eQTL) discovery using RNA-seq</li>
-  <li>Environmental genomics: population connectivity and gene flow analysis in zooplankton and fish</li>
-  <li>Custom R/Python scripts for QC, filtering, visualization, and genomic summary statistics</li>
-</ul>
+  <h3>🧬 Genomic Connectivity & eQTL Analysis</h3>
+  <ul>
+    <li>RNA-seq based expression QTL analysis</li>
+    <li>Connectivity inference in aquatic systems (zooplankton, fish)</li>
+    <li>Custom statistical summaries and visual outputs (R, Python)</li>
+  </ul>
 
-  <p>
-    Visit my <a href="https://github.com/Ensiuc" target="_blank">GitHub</a> for code samples and pipeline documentation.
+  <p style="margin-top: 1rem;">
+    See more on my <a href="https://github.com/Ensiuc" target="_blank">GitHub</a> or in my <a href="#publications">publications</a>.
   </p>
 </section>
+
 
   <section id="contact">
     <h2>Contact</h2>
